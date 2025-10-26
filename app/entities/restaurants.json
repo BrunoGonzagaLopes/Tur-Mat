@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Celsinho Grill",
+    "rating": 4.9,
+    "distance": 12.5,
+    "description": "Restaurante moderno, ambiente acolhedor, sabores únicos e pratos frescos.",
+    "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+  },
+  {
+    "id": 2,
+    "name": "Bella Pizza",
+    "rating": 4.7,
+    "distance": 5.2,
+    "description": "Pizzas artesanais, forno a lenha, ambiente familiar.",
+    "image": "https://images.unsplash.com/photo-1601924582971-3b3f36507dbf"
+  },
+  {
+    "id": 3,
+    "name": "Sushi Master",
+    "rating": 4.8,
+    "distance": 8.0,
+    "description": "Sushis frescos e combinados tradicionais japoneses.",
+    "image": "https://images.unsplash.com/photo-1562158070-6c1d8aabf6a7"
+  },
+  {
+    "id": 4,
+    "name": "Burger House",
+    "rating": 4.5,
+    "distance": 3.7,
+    "description": "Hambúrgueres gourmet, batatas crocantes e milkshakes.",
+    "image": "https://images.unsplash.com/photo-1550547660-d9450f859349"
+  },
+  {
+    "id": 5,
+    "name": "La Pasta",
+    "rating": 4.6,
+    "distance": 6.8,
+    "description": "Massas frescas e molhos artesanais, ambiente italiano.",
+    "image": "https://images.unsplash.com/photo-1525755662778-989d0524087e"
+  },
+  {
+    "id": 6,
+    "name": "Café do Bairro",
+    "rating": 4.4,
+    "distance": 1.2,
+    "description": "Cafés especiais, doces e ambiente aconchegante.",
+    "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+  },
+  {
+    "id": 7,
+    "name": "Churrascaria Prime",
+    "rating": 4.9,
+    "distance": 10.0,
+    "description": "Carnes nobres, buffet variado e atendimento excelente.",
+    "image": "https://images.unsplash.com/photo-1600891964342-1f0b1d04f1d7"
+  },
+  {
+    "id": 8,
+    "name": "Veggie Delight",
+    "rating": 4.3,
+    "distance": 2.5,
+    "description": "Opções veganas criativas, sucos naturais e sobremesas.",
+    "image": "https://images.unsplash.com/photo-1543353071-873f17a7a088"
+  }
+]
