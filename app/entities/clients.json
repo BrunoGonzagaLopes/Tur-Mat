@@ -1,0 +1,23 @@
+
+{
+  "123.456.789-00": {
+    "nome": "Bruno Vinicius Lopes",
+    "telefone": "1234-5678",
+    "email": "bruno@email.com"
+  },
+  "987.654.321-00": {
+    "nome": "Maria Silva",
+    "telefone": "9876-5432",
+    "email": "maria@email.com"
+  },
+  "321.654.987-11": {
+    "nome": "Lucas Andrade",
+    "telefone": "1122-3344",
+    "email": "lucas@email.com"
+  },
+  "654.987.321-22": {
+    "nome": "Ana Beatriz Souza",
+    "telefone": "2233-4455",
+    "email": "ana@email.com"
+  }
+}

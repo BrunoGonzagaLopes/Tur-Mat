@@ -1,3 +1,4 @@
+import { UserProvider } from "./context/UserContext";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { router } from "expo-router"
 import Boll from './components/BollGeneric';
@@ -10,8 +11,8 @@ import Profile from './components/Profile';
 export default function Index() {
 
   return (
-
-    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+<UserProvider>
+    <ScrollView contentContainerStyle={{ flexGrow: 1,backgroundColor: '#F3EFEA' }}>
       <View style={{ backgroundColor: '#F3EFEA', flexDirection: "column", }}>
 
 
@@ -41,6 +42,7 @@ export default function Index() {
         
       </View>
     </ScrollView>
+    </UserProvider>
   );
 }
 

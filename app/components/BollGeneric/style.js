@@ -4,7 +4,7 @@ export default StyleSheet.create({
   bola: {
     width: 50,
     height: 50,
-    borderRadius: 50,
+    borderRadius: 75,
     opacity: 1,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },

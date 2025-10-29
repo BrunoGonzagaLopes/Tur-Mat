@@ -18,7 +18,7 @@ const Search = ({ placeholder, onSearch }) => {
         placeholder={placeholder || "Pesquisar..."}
         placeholderTextColor="#888"
         returnKeyType="search"
-        onSubmitEditing={handleSearch} // Enter do teclado
+        onSubmitEditing={handleSearch}
       />
       <TouchableOpacity onPress={handleSearch} style={styles.iconButton}>
         <Image

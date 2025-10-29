@@ -1,79 +1,92 @@
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View, Pressable, ScrollView } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import { router } from "expo-router";
+import { UserProvider } from "../context/UserContext";
+// Componentes
+import Boll from '../components/BollGeneric';
+import Profile from '../components/Profile';
+import ClientInfo from '../components/ClientInfo';
+import CardConfig from '../components/cardConfig';
 
-export default function Index() {
-
+export default function UserProfileView() {
   return (
-
-    <View style={{ backgroundColor: '#F3EFEA', }}>
-      <View style={{ backgroundColor: '#e7b100ff', flex:1, height:100 }}>
-
-
-       
-        <View style={styles.containerHeader}>
-          <View style={styles.ContainerTextEndereco}>
-            <Text style={styles.Textendereco}>Endereço</Text>
-          </View>
-
-
-        </View>
+    <View style={{ backgroundColor: '#F3EFEA', flex: 1 }}>
       
-        
+      {/* HEADER */}
+      <LinearGradient
+        colors={["#FAB418", "#FFB40C"]}
+        start={{ x: 0.5, y: 0 }}
+        end={{ x: 0.5, y: 1 }}
+        style={styles.yellowBox}
+      >
+        <Boll style={styles.componentBoll}>
+          <Text style={styles.iconBoll} onPress={() => router.push('/')}> {'<'} </Text>
+        </Boll>
+      </LinearGradient>
+
+      <View style={{ alignItems: 'center', height: 80 }}>
+        <Profile style={styles.profileCircle} />
+        <Pressable style={styles.editPressable} onPress={() => router.push('/')}>
+          <Image source={require('../assets/images/icons/edit.png')} />
+        </Pressable>
       </View>
-      </View>
-  
+    <UserProvider>
+      {/* MAIN */}
+      <ClientInfo />
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <CardConfig />
+      </ScrollView>
+</UserProvider>
+      {/* FOOTER */}
+      <Pressable onPress={() => router.push('/')}>
+        <Text style={styles.LogOut}>Encerrar sessão</Text>
+      </Pressable>
+    </View>
   );
 }
 
 
-
-
-
 const styles = StyleSheet.create({
-  containerHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    height: 'auto'
-
+  yellowBox: {
+    height: 162,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
+    elevation: 12,
   },
-  ContainerTextEndereco: {
-    marginTop: 60,
-  },
-  positionBoll: {
-    marginTop: 60,
-    marginBottom: 10,
-    marginHorizontal: 20
+  componentBoll: {
+    marginTop: 50,
+    marginLeft: 25,
+    height: 50,
+    width: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   iconBoll: {
-    width: '66%',
-    height: '66%',
-    margin: 'auto'
-  }
-  ,
-  Textendereco: {
-    color: '#939393',
-    fontFamily: 'Roboto',
-    fontWeight: '700',
-    fontStyle: 'normal',
-    fontSize: 12,
-    lineHeight: 16,
-    letterSpacing: 0,
-    textAlign: 'center'
-  },
-  myLocalization: {
-    fontFamily: 'Roboto',
-    fontWeight: '700',
-    fontStyle: 'normal',
-    lineHeight: 14,
-    letterSpacing: 0.5,
-    textAlign: 'center'
+    fontWeight: 700,
+    color: '#747474',
+    fontSize: 20,
+    includeFontPadding: false,
   },
 
-  imageBoll: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 50,
-    borderColor: '#FAB418',
-    borderWidth: 3
+  profileCircle: {
+    width: 150,
+    height: 150,
+    position: "relative",
+    bottom: '50%',
+    margin: 'auto',
   },
+  editPressable:{
+  position:'absolute',
+  top:10,
+  right:20,
+  },
+LogOut:{
+  textAlign:'center',
+  color:'#F0150E',
+  paddingBottom: 20,
+  fontSize:19
+
+}
 })

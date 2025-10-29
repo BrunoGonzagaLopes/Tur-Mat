@@ -1,67 +1,83 @@
 import React, { useEffect, useState } from 'react';
 import { FlatList, Image, Text, TouchableOpacity, View, ActivityIndicator } from 'react-native';
-import { LinearGradient } from "expo-linear-gradient";
+import { LinearGradient } from 'expo-linear-gradient';
 import styles from './style';
+import { useRouter } from 'expo-router';
 import RestaurantService from '../../services/RestaurantService';
 
-const RestaurantCard = () => {
-  const [restaurants, setRestaurants] = useState([]);
-  const [loading, setLoading] = useState(true);
+const RestaurantCard = ({ cpfDono = null, data = null, editable = false }) => {
+  const [restaurants, setRestaurants] = useState(data || []);
+  const [loading, setLoading] = useState(!data);
+  const router = useRouter();
 
   useEffect(() => {
+    if (data) return;
+
     const loadRestaurants = async () => {
-      const data = await RestaurantService.getAll();
-      const sortedData = data.sort((a, b) => (a.distance || 0) - (b.distance || 0));
-
-      setRestaurants(sortedData);
-      setLoading(false);
-
+      try {
+        const response = await RestaurantService.getAll(cpfDono);
+        setRestaurants(Array.isArray(response) ? response : []);
+      } catch (error) {
+        console.error('Erro ao carregar restaurantes:', error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     loadRestaurants();
-  }, []);
+  }, [cpfDono, data]);
 
   if (loading) {
     return (
-      <View style={{ flex:1, justifyContent:'center', alignItems:'center' }}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 50 }}>
         <ActivityIndicator size="large" color="#000" />
       </View>
     );
   }
 
+  if (!restaurants.length) {
+    return <Text style={{ textAlign: 'center', marginTop: 50 }}>Nenhum restaurante encontrado.</Text>;
+  }
+
   return (
     <>
-    <Text style={styles.textChamada}>Restaurantes para conhecer</Text>
-    <FlatList
-      data={restaurants}
-      keyExtractor={(item) => item.id.toString()}
-      renderItem={({ item }) => (
-        <TouchableOpacity style={styles.ContainerCard}>
-          <LinearGradient
-            colors={["#FEFEFB", "#F3F3F3"]}
-            start={{ x: 0.5, y: 0 }}
-            end={{ x: 0.5, y: 1 }}
-            style={styles.RestaurantInfoCard}
-          >
-            <Image style={styles.RestaurantImageCard} source={{ uri: item.image }} />
-            <View style={styles.ContainerTextInfoCard}>
-              <Text style={styles.ValueInfo}>
-                <Image source={require('../../assets/images/icons/Star.png')} style={{ width: 12, height: 12 }} /> {item.rating}
-              </Text>
-              <Text style={styles.Textname}>{item.name}</Text>
-              {item.distance &&(
+      {!data && <Text style={styles.textChamada}>Restaurantes para conhecer</Text>}
+
+      <FlatList
+        data={restaurants}
+        keyExtractor={(item) => String(item.id)}
+        renderItem={({ item }) => (
+          <TouchableOpacity style={styles.ContainerCard}>
+            <LinearGradient
+              colors={["#FEFEFB", "#F3F3F3"]}
+              start={{ x: 0.5, y: 0 }}
+              end={{ x: 0.5, y: 1 }}
+              style={styles.RestaurantInfoCard}
+            >
+              <Image style={styles.RestaurantImageCard} source={{ uri: item.image }} />
+              <View style={styles.ContainerTextInfoCard}>
+                <Text style={styles.ValueInfo}>
+                  <Image source={require('../../assets/images/icons/Star.png')} style={{ width: 12, height: 12 }} /> {item.rating ?? 0}
+                </Text>
+                <Text style={styles.Textname}>{item.name}</Text>
                 <Text style={styles.Distance}>
-                <Image source={require('../../assets/images/icons/marcador.png')} style={{ width: 10, height: 10 }} /> {item.distance} Km
-              </Text>
+                  <Image source={require('../../assets/images/icons/marcador.png')} style={{ width: 10, height: 10 }} /> {item.adress}
+                </Text>
+                <Text style={styles.DescriptionCard}>{item.description}</Text>
+              </View>
+
+              {editable && (
+                <TouchableOpacity
+                  style={styles.EditIcon}
+                  onPress={() => router.push({ pathname: '/view/EditRestaurant', params: { id: item.id } })}
+                >
+                  <Image source={require('../../assets/images/icons/edit.png')} style={{ width: 20, height: 20 }} />
+                </TouchableOpacity>
               )}
-                
-              
-              <Text style={styles.DescriptionCard}>{item.description}</Text>
-            </View>
-          </LinearGradient>
-        </TouchableOpacity>
-      )}
-    />
+            </LinearGradient>
+          </TouchableOpacity>
+        )}
+      />
     </>
   );
 };
