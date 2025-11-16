@@ -9,7 +9,8 @@ const restaurantesEmMemoria = [
     "description": "Restaurante moderno, ambiente acolhedor, sabores únicos e pratos frescos.",
     "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
     "cpfDono": "",
-    "distance": 6.2
+    "distance": 6.2,
+    "favorite": false
   },
   {
     "id": 2,
@@ -19,7 +20,8 @@ const restaurantesEmMemoria = [
     "description": "Pizzas artesanais, forno a lenha, ambiente familiar.",
     "image": "https://images.unsplash.com/photo-1601924582971-3b3f36507dbf",
     "cpfDono": "",
-    "distance": 7.5
+    "distance": 7.5,
+    "favorite": false
   },
   {
     "id": 3,
@@ -29,7 +31,8 @@ const restaurantesEmMemoria = [
     "description": "Sushis frescos e combinados tradicionais japoneses.",
     "image": "https://images.unsplash.com/photo-1562158070-6c1d8aabf6a7",
     "cpfDono": "",
-    "distance": 8.0
+    "distance": 8.0,
+    "favorite": false
   },
   {
     "id": 4,
@@ -39,7 +42,8 @@ const restaurantesEmMemoria = [
     "description": "Hambúrgueres gourmet, batatas crocantes e milkshakes.",
     "image": "https://images.unsplash.com/photo-1550547660-d9450f859349",
     "cpfDono": "",
-    "distance": 9.3
+    "distance": 9.3,
+    "favorite": false
   },
   {
     "id": 5,
@@ -49,7 +53,8 @@ const restaurantesEmMemoria = [
     "description": "Massas frescas e molhos artesanais, ambiente italiano.",
     "image": "https://images.unsplash.com/photo-1525755662778-989d0524087e",
     "cpfDono": "",
-    "distance": 15.4
+    "distance": 15.,
+    "favorite": false
   },
   {
     "id": 6,
@@ -59,7 +64,8 @@ const restaurantesEmMemoria = [
     "description": "Cafés especiais, doces e ambiente aconchegante.",
     "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
     "cpfDono": "",
-    "distance": 4.5
+    "distance": 4.5,
+    "favorite": false
   },
   {
     "id": 7,
@@ -69,7 +75,8 @@ const restaurantesEmMemoria = [
     "description": "Carnes nobres, buffet variado e atendimento excelente.",
     "image": "https://images.unsplash.com/photo-1600891964342-1f0b1d04f1d7",
     "cpfDono": "",
-    "distance": 2.8
+    "distance": 2.8,
+    "favorite": false
   },
   {
     "id": 8,
@@ -79,7 +86,8 @@ const restaurantesEmMemoria = [
     "description": "Opções veganas criativas, sucos naturais e sobremesas.",
     "image": "https://images.unsplash.com/photo-1543353071-873f17a7a088",
     "cpfDono": "",
-    "distance": 6.9
+    "distance": 6.9,
+    "favorite": false
   },
   {
     "id": 9,
@@ -89,7 +97,8 @@ const restaurantesEmMemoria = [
     "description": "Ambiente aconchegante com pratos caseiros e receitas da casa.",
     "image": "https://picsum.photos/400/300?random=1",
     "cpfDono": "123.456.789-00",
-    "distance": 5.0
+    "distance": 5.0,
+    "favorite": false
   },
   {
     "id": 10,
@@ -99,7 +108,8 @@ const restaurantesEmMemoria = [
     "description": "Cafeteria especializada em cafés especiais e brunch.",
     "image": "https://picsum.photos/400/300?random=2",
     "cpfDono": "123.456.789-00",
-    "distance": 6.7
+    "distance": 6.7,
+    "favorite": false
   },
   {
     "id": 11,
@@ -109,7 +119,8 @@ const restaurantesEmMemoria = [
     "description": "Sushi fresco e combinações autorais em ambiente moderno.",
     "image": "https://picsum.photos/400/300?random=3",
     "cpfDono": "987.654.321-00",
-    "distance": 7.2
+    "distance": 7.2,
+    "favorite": false
   },
   {
     "id": 12,
@@ -119,7 +130,8 @@ const restaurantesEmMemoria = [
     "description": "Padaria tradicional com pães fresquinhos e doces variados.",
     "image": "https://picsum.photos/400/300?random=4",
     "cpfDono": "987.654.321-00",
-    "distance": 8.5
+    "distance": 8.5,
+    "favorite": false
   },
   {
     "id": 13,
@@ -129,7 +141,8 @@ const restaurantesEmMemoria = [
     "description": "Pratos internacionais com toque caseiro.",
     "image": "https://picsum.photos/400/300?random=5",
     "cpfDono": "987.654.321-00",
-    "distance": 14.0
+    "distance": 14.0,
+    "favorite": false
   },
   {
     "id": 14,
@@ -139,7 +152,8 @@ const restaurantesEmMemoria = [
     "description": "Carnes nobres, buffet variado e atendimento familiar.",
     "image": "https://picsum.photos/400/300?random=6",
     "cpfDono": "321.654.987-11",
-    "distance": 4.2
+    "distance": 4.2,
+    "favorite": false
   },
   {
     "id": 15,
@@ -149,7 +163,8 @@ const restaurantesEmMemoria = [
     "description": "Hambúrgueres artesanais e milkshakes clássicos.",
     "image": "https://picsum.photos/400/300?random=7",
     "cpfDono": "321.654.987-11",
-    "distance": 3.0
+    "distance": 3.0,
+    "favorite": false
   },
   {
     "id": 16,
@@ -159,7 +174,8 @@ const restaurantesEmMemoria = [
     "description": "Hambúrguer artesanal com opções veganas e milkshakes.",
     "image": "https://picsum.photos/400/300?random=8",
     "cpfDono": "654.987.321-22",
-    "distance": 6.8
+    "distance": 6.8,
+    "favorite": true
   },
   {
     "id": 17,
@@ -169,7 +185,8 @@ const restaurantesEmMemoria = [
     "description": "Cafeteria moderna com bolos e salgados fresquinhos.",
     "image": "https://picsum.photos/400/300?random=9",
     "cpfDono": "654.987.321-22",
-    "distance": 5.5
+    "distance": 5.5,
+    "favorite": false
   }
 ]
 
@@ -194,6 +211,7 @@ class RestaurantService {
       image: data.image ?? `https://picsum.photos/400/300?random=${now}`,
       rating: data.rating ?? 0,
       distance: data.distance ?? 0,
+      favorite: false
     };
     restaurantesEmMemoria.push(novo);
     return this.toEntity(novo);
@@ -211,12 +229,21 @@ class RestaurantService {
     return rest ? this.toEntity(rest) : null;
   }
 
+  static async getFavorite(cpf) {
+  const rest = restaurantesEmMemoria.filter(
+    r => r.cpfDono === cpf && r.favorite === true
+  );
+
+  return rest.map(this.toEntity);
+}
+
   static async update(id, dados) {
     const idx = restaurantesEmMemoria.findIndex(r => String(r.id) === String(id));
     if (idx === -1) return false;
     restaurantesEmMemoria[idx] = { ...restaurantesEmMemoria[idx], ...dados };
     return true;
   }
+  
   static async getByCpf(cpf) {
   if (!cpf) return restaurantesEmMemoria.map(this.toEntity);
   const filtrados = restaurantesEmMemoria.filter(r => r.cpfDono === cpf);

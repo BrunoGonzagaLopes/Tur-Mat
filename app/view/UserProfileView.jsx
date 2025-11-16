@@ -1,14 +1,24 @@
 import { Image, StyleSheet, Text, View, Pressable, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
-import { UserProvider } from "../context/UserContext";
+import { useEffect } from "react";
+import { useUser } from '../context/UserContext';
 // Componentes
 import Boll from '../components/BollGeneric';
 import Profile from '../components/Profile';
 import ClientInfo from '../components/ClientInfo';
-import CardConfig from '../components/ProfileMenu';
+import ProfileMenu from '../components/cardConfig';
+
 
 export default function UserProfileView() {
+ const { user } = useUser();
+
+   useEffect(() => {
+    if (user == null) {
+      router.push('/view/LoginView');
+    }
+  }, [user]);
+
   return (
     <View style={{ backgroundColor: '#F3EFEA', flex: 1 }}>
       
@@ -30,13 +40,12 @@ export default function UserProfileView() {
           <Image source={require('../assets/images/icons/edit.png')} />
         </Pressable>
       </View>
-    <UserProvider>
+    
       {/* MAIN */}
       <ClientInfo />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <CardConfig />
+        <ProfileMenu />
       </ScrollView>
-</UserProvider>
       {/* FOOTER */}
       <Pressable onPress={() => router.push('/')}>
         <Text style={styles.LogOut}>Encerrar sessão</Text>

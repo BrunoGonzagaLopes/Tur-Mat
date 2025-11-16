@@ -1,48 +1,65 @@
-import { UserProvider } from "./context/UserContext";
+import React, { useEffect, useState } from "react"
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { router } from "expo-router"
+import { getCurrentAddress } from "./services/locationService";
+
 import Boll from './components/BollGeneric';
 import Carousel from './components/Carousel';
 import FoodCategory from "./components/FoodCategory";
 import RestaurantCard from './components/RestaurantCard';
 import Search from './components/Search';
 import Profile from './components/Profile';
+import CuponsCard from './components/CuponsCard'
+
 
 export default function Index() {
 
+  //  const [endereco, setEndereco] = useState(null);
+
+  //   useEffect(() => {
+  //     const fetchAddress = async () => {
+  //       const data = await getCurrentAddress();
+  //       setEndereco(data);
+  //     };
+  //     fetchAddress();
+
+  //   }, []);
+  //   console.table(endereco)
+  
   return (
-<UserProvider>
-    <ScrollView contentContainerStyle={{ flexGrow: 1,backgroundColor: '#F3EFEA' }}>
-      <View style={{ backgroundColor: '#F3EFEA', flexDirection: "column", }}>
+   
+      <ScrollView contentContainerStyle={{ flexGrow: 1, backgroundColor: '#F3EFEA' }}>
+        <View style={{ backgroundColor: '#F3EFEA', flexDirection: "column", }}>
 
 
-        {/* Header */}
-        <View style={styles.containerHeader}>
-          <Boll style={styles.positionBoll}><Image source={require('./assets/images/icons/vale.png')} style={styles.iconBoll}></Image></Boll>
+          {/* Header */}
+          <View style={styles.containerHeader}>
+            <Boll style={styles.positionBoll} onPress={() => router.push('/view/CuponsListView')}><Image source={require('./assets/images/icons/vale.png')} style={styles.iconBoll}></Image></Boll>
+            
+            <View style={styles.ContainerTextEndereco}>
+              <Text style={styles.Textendereco}>Endereço</Text>
+              {/* <Text style={styles.myLocalization}> <Image source={require('./assets/images/icons/marcador.png')} style={{ width: 10 }}></Image> {endereco.street} - {endereco.streetNumber}</Text> */}
+            </View>
 
-          <View style={styles.ContainerTextEndereco}>
-            <Text style={styles.Textendereco}>Endereço</Text>
-            <Text style={styles.myLocalization}> <Image source={require('./assets/images/icons/marcador.png')} style={{ width: 10 }}></Image> Rua não sei, 13</Text>
+            <Profile
+              style={styles.positionBoll}
+              onPress={() => router.push('/view/UserProfileView')}
+            />
+
           </View>
+          <Search></Search>
+    
+          <Carousel></Carousel>
 
-         <Profile
-      style={styles.positionBoll}
-      onPress={() => router.push('/view/UserProfileView')}
-    />
+          {/* categorias */}
+          <FoodCategory></FoodCategory>
+
+          {/* Chamada */}
+          <RestaurantCard></RestaurantCard>
   
         </View>
-        <Search></Search>
-        <Carousel></Carousel>
-
-        {/* categorias */}
-        <FoodCategory></FoodCategory>
-
-        {/* Chamada */}
-        <RestaurantCard></RestaurantCard>
-        
-      </View>
-    </ScrollView>
-    </UserProvider>
+      </ScrollView>
+  
   );
 }
 
@@ -86,6 +103,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto',
     fontWeight: '700',
     fontStyle: 'normal',
+    fontSize: 10,
     lineHeight: 14,
     letterSpacing: 0.5,
     textAlign: 'center'

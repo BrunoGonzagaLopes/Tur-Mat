@@ -6,7 +6,7 @@ import RestaurantService from '../services/RestaurantService';
 import Boll from '../components/BollGeneric';
 
 export default function CreateRestaurant() {
-  const { user } = useUser(); // CPF do usuário logado
+  const { user } = useUser(); 
   const router = useRouter();
 
   const [name, setName] = useState('');

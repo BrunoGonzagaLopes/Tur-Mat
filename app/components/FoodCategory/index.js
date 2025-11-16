@@ -8,7 +8,7 @@ const categorias = [
   { id: 4, image: require('../../assets/images/icons/sorvete.png'), description: 'Sorvete' },
   { id: 5, image: require('../../assets/images/icons/hamburguer.png'), description: 'Lanches' },
 ];
-export default function Category() {
+export default function FoodCategory() {
   return (
     <View style={styles.containerCategory}>
       {categorias.map((item) => (
