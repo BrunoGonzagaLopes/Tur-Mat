@@ -12,54 +12,50 @@ import Profile from './components/Profile';
 import CuponsCard from './components/CuponsCard'
 
 
+
 export default function Index() {
 
-  //  const [endereco, setEndereco] = useState(null);
+  const [Address, setAddress] = useState(null);
 
-  //   useEffect(() => {
-  //     const fetchAddress = async () => {
-  //       const data = await getCurrentAddress();
-  //       setEndereco(data);
-  //     };
-  //     fetchAddress();
+  useEffect(() => {
+    const load = async () => {
+      const data = await getCurrentAddress();
+      setAddress(data);
+    };
+    load();
+  }, []);
 
-  //   }, []);
-  //   console.table(endereco)
-  
   return (
-   
-      <ScrollView contentContainerStyle={{ flexGrow: 1, backgroundColor: '#F3EFEA' }}>
-        <View style={{ backgroundColor: '#F3EFEA', flexDirection: "column", }}>
+    <ScrollView contentContainerStyle={{ flexGrow: 1, backgroundColor: '#F3EFEA' }}>
+      <View style={{ backgroundColor: '#F3EFEA', flexDirection: "column" }}>
 
+        {/* Header */}
+        <View style={styles.containerHeader}>
+          <Boll style={styles.positionBoll} onPress={() => router.push('/view/CuponsListView')}>
+            <Image source={require('./assets/images/icons/vale.png')} style={styles.iconBoll} />
+          </Boll>
 
-          {/* Header */}
-          <View style={styles.containerHeader}>
-            <Boll style={styles.positionBoll} onPress={() => router.push('/view/CuponsListView')}><Image source={require('./assets/images/icons/vale.png')} style={styles.iconBoll}></Image></Boll>
-            
-            <View style={styles.ContainerTextEndereco}>
-              <Text style={styles.Textendereco}>Endereço</Text>
-              {/* <Text style={styles.myLocalization}> <Image source={require('./assets/images/icons/marcador.png')} style={{ width: 10 }}></Image> {endereco.street} - {endereco.streetNumber}</Text> */}
-            </View>
+          <View style={styles.ContainerTextEndereco}>
+            <Text style={styles.Textendereco}>Endereço</Text>
 
-            <Profile
-              style={styles.positionBoll}
-              onPress={() => router.push('/view/UserProfileView')}
-            />
-
+            <Text style={styles.myLocalization}>
+              <Image source={require('./assets/images/icons/marcador.png')} style={{ width: 8, height:8 }} />
+              {Address ? `${Address.street} - ${Address.streetNumber}` : "Carregando..."}
+            </Text>
           </View>
-          <Search></Search>
-    
-          <Carousel></Carousel>
 
-          {/* categorias */}
-          <FoodCategory></FoodCategory>
-
-          {/* Chamada */}
-          <RestaurantCard></RestaurantCard>
-  
+          <Profile
+            style={styles.positionBoll}
+            onPress={() => router.push('/view/UserProfileView')}
+          />
         </View>
-      </ScrollView>
-  
+
+        <Search />
+        <Carousel />
+        <FoodCategory />
+        <RestaurantCard />
+      </View>
+    </ScrollView>
   );
 }
 

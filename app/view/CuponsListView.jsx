@@ -5,6 +5,7 @@ import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import BollGereric from '../components/BollGeneric'
 import Points from "../components/Points";
 import CuponsCard from "../components/CuponsCard";
+import { Ionicons, MaterialCommunityIcons  } from "@expo/vector-icons";
 
 export default function CreateRestaurant() {
   const { user } = useUser();
@@ -15,13 +16,15 @@ export default function CreateRestaurant() {
     }
   }, [user]);
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1, backgroundColor: '#F3EFEA' }}>
-      <View style={{ backgroundColor: '#F3EFEA', flexDirection: "column", }}>
+
+      <View style={{ backgroundColor: '#F3EFEA', flexDirection: "column",flex:1 }}>
 
 
         {/* Header */}
         <View style={styles.containerHeader}>
-          <BollGereric style={styles.positionBoll} onPress={() => router.push('/')}><Image source={require('../assets/images/icons/arrowreturn.png')} style={styles.iconBoll}></Image></BollGereric>
+          <BollGereric style={styles.positionBoll} onPress={() => router.push('/')}>
+          <MaterialCommunityIcons name="chevron-left" size={40} color="black" />
+          </BollGereric>
 
           <View style={styles.ContainerPoints}>
             <Text style={styles.Points}>Meus Pontos</Text>
@@ -31,14 +34,16 @@ export default function CreateRestaurant() {
             style={styles.positionBoll}
             onPress={() => router.push('/view/QrScannerView')}
           >
-            <Image
-              source={require('../assets/images/icons/qrcode.png')}
-              style={styles.iconBoll}
-            />
+            <Ionicons name="qr-code" size={32} color="black" />
           </BollGereric>
         </View>
+        {/* Main  */}
+       <View style={styles.ContainerMain}>
+        
+
+       </View>
       </View>
-    </ScrollView>
+    
   )
 
 }
@@ -51,7 +56,7 @@ const styles = StyleSheet.create({
 
   },
   ContainerPoints: {
-    marginTop: 60,
+    marginTop: 80,
   },
   positionBoll: {
     marginTop: 60,

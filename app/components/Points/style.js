@@ -16,7 +16,7 @@ export default StyleSheet.create({
         height: 21
     },
     textPoints: {
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: 700,
         fontFamily: 'Roboto'
     }

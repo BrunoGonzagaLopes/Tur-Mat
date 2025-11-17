@@ -3,6 +3,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import { useEffect } from "react";
 import { useUser } from '../context/UserContext';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 // Componentes
 import Boll from '../components/BollGeneric';
 import Profile from '../components/Profile';
@@ -30,7 +31,7 @@ export default function UserProfileView() {
         style={styles.yellowBox}
       >
         <Boll style={styles.componentBoll}>
-          <Text style={styles.iconBoll} onPress={() => router.push('/')}> {'<'} </Text>
+          <Text onPress={() => router.push('/')}> <MaterialCommunityIcons name="chevron-left" size={40} color="black" /></Text>
         </Boll>
       </LinearGradient>
 
@@ -71,12 +72,6 @@ const styles = StyleSheet.create({
     width: 50,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  iconBoll: {
-    fontWeight: 700,
-    color: '#747474',
-    fontSize: 20,
-    includeFontPadding: false,
   },
 
   profileCircle: {

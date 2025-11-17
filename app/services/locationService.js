@@ -6,5 +6,7 @@ export const getCurrentAddress = async () => {
 
   const location = await Location.getCurrentPositionAsync({});
   const [address] = await Location.reverseGeocodeAsync(location.coords);
+  
+  
   return address;
 };
