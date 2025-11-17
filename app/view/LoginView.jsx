@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, Alert } from "react-native";
 import { router } from "expo-router";
-import { loginService } from "../services/authService";
+import { login } from "../services/httpService";
 
 export default function LoginScreen() {
 
@@ -9,18 +9,7 @@ export default function LoginScreen() {
   const [senha, setSenha] = useState("");
 
   async function handleLogin() {
-    const result = await loginService(email, senha);
-
-    if (!result.ok) {
-      Alert.alert("Erro", result.message);
-      return;
-    }
-
-   
-
-
-    
-    router.push("/");
+    router.push(await login(email, senha));
   }
 
   return (

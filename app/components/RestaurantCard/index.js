@@ -15,7 +15,7 @@ const RestaurantCard = ({ cpfDono = null, data = null, editable = false }) => {
 
     const loadRestaurants = async () => {
       try {
-        const response = await RestaurantService.getAll(cpfDono);
+        const response = await RestaurantService.getAllHTTP("api/estabelecimentos");
         setRestaurants(Array.isArray(response) ? response : []);
       } catch (error) {
         console.error('Erro ao carregar restaurantes:', error);
