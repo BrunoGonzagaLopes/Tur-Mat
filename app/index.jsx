@@ -51,7 +51,7 @@ export default function Index() {
         </View>
 
         <Search />
-        <Carousel style={styles.Carouselmargin}/>
+        <Carousel />
         <FoodCategory />
         <RestaurantCard />
       </View>
