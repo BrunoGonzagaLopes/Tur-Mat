@@ -9,8 +9,6 @@ import FoodCategory from "./components/FoodCategory";
 import RestaurantCard from './components/RestaurantCard';
 import Search from './components/Search';
 import Profile from './components/Profile';
-import CuponsCard from './components/CuponsCard'
-
 
 
 export default function Index() {
@@ -49,7 +47,6 @@ export default function Index() {
             onPress={() => router.push('/view/UserProfileView')}
           />
         </View>
-
         <Search />
         <Carousel />
         <FoodCategory />
@@ -112,7 +109,7 @@ const styles = StyleSheet.create({
     borderColor: '#FAB418',
     borderWidth: 3
   },
-  Carouselmargin:{
-    marginTop:20
+  Carouselmargin: {
+    marginTop: 20
   }
 });

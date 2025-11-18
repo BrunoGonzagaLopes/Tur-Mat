@@ -5,24 +5,24 @@ import styles from './style';
 import { useRouter } from 'expo-router';
 import { getAllHTTP } from '../../services/RestaurantService';
 
-const RestaurantCard = ({ data = null }) => {
-  const [restaurants, setRestaurants] = useState(data || []);
+const foodTruckCard = ({ data }) => {
+  const [foodTruck, setfoodTruck] = useState(data || []);
   const [loading, setLoading] = useState(!data);
   const router = useRouter();
 
   useEffect(() => {
     if (data) return;
 
-    const loadRestaurants = async () => {
+    const loadfoodTruck = async () => {
       setLoading(true);
       let dados = { distancia: 10000 }
       const response = await getAllHTTP(dados);
       console.log(response);
-      setRestaurants(response);
+      setfoodTruck(response);
       setLoading(false);
     };
 
-    loadRestaurants();
+    loadfoodTruck();
   }, []);
 
 
@@ -34,41 +34,30 @@ const RestaurantCard = ({ data = null }) => {
     );
   }
 
-  if (!restaurants.length) {
-    return <Text style={{ textAlign: 'center', marginTop: 50 }}>Nenhum restaurante encontrado.</Text>;
-  }
-
+ 
   return (
     < >
-      <FlatList
-        data={restaurants}
-        keyExtractor={(item) => String(item.id)}
-        renderItem={({ item }) => (
           <TouchableOpacity style={styles.ContainerCard}>
             <LinearGradient
               colors={["#FEFEFB", "#F3F3F3"]}
               start={{ x: 0.5, y: 0 }}
               end={{ x: 0.5, y: 1 }}
-              style={styles.RestaurantInfoCard}
+              style={styles.InfoCard}
             >
-              <Image style={styles.RestaurantImageCard} source={{ uri: item.image }} />
+              <Image style={styles.ImageCard} source={require('../../assets/images/icons/Star.png')} />
               <View style={styles.ContainerTextInfoCard}>
-                <Text style={styles.ValueInfo}>
-                  <Image source={require('../../assets/images/icons/Star.png')} style={{ width: 12, height: 12 }} /> {item.rating ?? 0}
+                <Text style={styles.ValueInfo}> R$ 15,00
                 </Text>
-                <Text style={styles.Textname}>{item.name}</Text>
-                <Text style={styles.Distance}>
-                  <Image source={require('../../assets/images/icons/marcador.png')} style={{ width: 10, height: 10 }} /> {item.distance}Km
-                </Text>
+                <Text style={styles.Textname}>Self Service</Text>
+              
 
-                <Text style={styles.DescriptionCard}>{item.description}</Text>
+                <Text style={styles.DescriptionCard}>Restaurante moderno, ambiente acolhedor, sabores únicos, atendimento excepcional e pratos frescos preparados com ingredientes selecionados.</Text>
               </View>
             </LinearGradient>
           </TouchableOpacity>
-        )}
-      />
+        
     </>
   );
 };
 
-export default RestaurantCard;
+export default foodTruckCard;

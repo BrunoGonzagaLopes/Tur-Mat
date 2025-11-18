@@ -6,8 +6,9 @@ export function useQrCodeService() {
 
   async function handleBarCodeScanned({ data }, setScanned) {
     setScanned(true);
+    router.push('/view/assessView')
     alert(`QR Code lido: ${data}`);
-    router.push('/view/CuponsListView')
+    
   }
 
   return {
