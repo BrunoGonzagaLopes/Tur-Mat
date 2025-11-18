@@ -58,7 +58,7 @@ export default function CreateRestaurant() {
       {/* Cupons do usuario  */}
       <View style={styles.ContainerMain}>
         <View style={{flexDirection:'row',justifyContent:'space-between' }}>
-          <Text style={styles.textcupons}>Cupons Disponíveis</Text>
+          <Text style={styles.textcupons}>Meus Cupons</Text>
           <Text style={styles.textcupons}>Histórico</Text>
         </View>
         {cuponsUruario.map((cupon) => (
