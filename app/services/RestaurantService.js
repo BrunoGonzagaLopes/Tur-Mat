@@ -17,15 +17,15 @@ export async function getAllHTTP(dados) {
     enderecoFormatado = `${localizacaoaAtual.street}, ${localizacaoaAtual.streetNumber}. ${localizacaoaAtual.postalCode}, ${localizacaoaAtual.district}`
   }
 
-  if (dados.nome == null) {
+  if (dados.nome === undefined) {
     dados.nome = "";
   }
 
-  if (dados.categoria == null) {
+  if (dados.categoria === undefined) {
     dados.categoria = "";
   }
 
-  if (dados.distancia == null) {
+  if (dados.distancia === undefined) {
     dados.distancia = "";
   }
 
