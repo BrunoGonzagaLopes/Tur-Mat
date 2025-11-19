@@ -1,4 +1,4 @@
-import { CameraView, useCameraPermissions } from 'expo-camera';
+import {  useCameraPermissions } from 'expo-camera';
 import { router } from "expo-router";
 import {adicionarPontos} from "../services/BeneficiosSevice";
 

@@ -68,10 +68,11 @@ export default StyleSheet.create({
         color: '#FCC419',
         fontFamily: 'Roboto',
         fontWeight: '700',
-        fontSize: 20,
+       fontSize: RFValue(16),
         padding:3,
         borderWidth:1,
         borderColor:'#FCC419',
         borderRadius:50
+
     }
 });

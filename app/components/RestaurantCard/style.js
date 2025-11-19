@@ -44,7 +44,7 @@ export default StyleSheet.create({
     Textname: {
         fontFamily: 'Roboto',
         fontWeight: '700',
-        fontSize: RFValue(16),
+        fontSize: RFValue(15),
         position: 'relative',
     },
     TextDistance: {
