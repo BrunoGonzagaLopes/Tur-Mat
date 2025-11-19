@@ -24,7 +24,7 @@ O **Tur Mat** é um aplicativo desenvolvido em **React Native** com o objetivo d
 ---
 
 🧩 Estrutura do Projeto
-bocalivre/
+Tur-Mat/
 ├── assets/              # Imagens e ícones
 ├── app/
 │   ├── assets/ 
