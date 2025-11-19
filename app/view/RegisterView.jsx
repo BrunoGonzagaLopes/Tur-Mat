@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, Image } from "react-native";
 import { validarEmail, validarCPF, validarSenha, validarNome } from "../services/validationCadastroService";
 import { cadastro } from "../services/httpService";
+import {router} from "expo-router";
 
 export default function CadastroScreen() {
     const [nome, setNome] = useState("");
@@ -12,6 +13,7 @@ export default function CadastroScreen() {
 
     function handleCadastro() {
         cadastro(nome, email, senha, cpf, "5531998579244");
+        router.push("/")
     }
 
     return (
