@@ -18,7 +18,7 @@ O **Tur Mat** é um aplicativo desenvolvido em **React Native** com o objetivo d
 - Exibição de restaurantes com informações e imagens  
 - Sistema de categorias dinâmico  
 - Carrossel informativo na tela inicial  
-- Consumo de dados via arquivo JSON -Temporariamente-  
+- Recuperação de dados dinâmicos do servidor via requisições HTTP.  
 - Layout responsivo e adaptado para mobile  
 
 ---
