@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FlatList, Image, Text, TouchableOpacity, View, ActivityIndicator } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from './style';
-import { useRouter } from 'expo-router';
+import {router, useRouter} from 'expo-router';
 import {getAllHTTP, getById} from '../../services/RestaurantService';
 import '../../components/Stars';
 import Stars from "../Stars";
@@ -10,6 +10,9 @@ import Stars from "../Stars";
 async function navToEstabelecimento(id){
   let restaurante = await getById(id);
   console.log(restaurante);
+  router.push({pathname: "/view/FoodTruckRestaurantMenuView", params: {
+    image: restaurante.image
+  }});
 }
 
 const RestaurantCard = ({ data = null, texto = "" , categoria = ""}) => {

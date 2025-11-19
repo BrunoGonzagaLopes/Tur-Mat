@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Text, View, Pressable, ScrollView, TouchableOpacity,Linking } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { router } from "expo-router";
+import {router, useLocalSearchParams} from "expo-router";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -11,6 +11,7 @@ import FoodTruckCard from '../components/FoodTruckCard';
 
 
 export default function FoodTruckView() {
+  const {image}  = useLocalSearchParams()
   
 
   return (
@@ -31,14 +32,14 @@ export default function FoodTruckView() {
         </LinearGradient>
 
         <View style={{ alignItems: 'center', height: 80 }}>
-          <Image style={styles.imageRestaurant} source={{ uri: 'https://app-restaurante-bucket.s3.sa-east-1.amazonaws.com/master_itaupower400440png.webp' }}></Image>
-          <Text style={styles.Textdistance}>15 km</Text>
+          <Image style={styles.imageRestaurant} source={{ uri: image}}></Image>
+          <Text style={styles.Textdistance}>sfefsfefs km</Text>
           <TouchableOpacity style={styles.pressable}>
             <Image source={require('../assets/images/icons/coracao.png')} style={styles.iconfavorite} />
           </TouchableOpacity>
           <View style={styles.infoRestaurant}>
             <View style={styles.nameandstars}>
-              <Text style={styles.Textname}> Bar do sr zé <Stars avaliacao={"5"} style={styles.starandvalue}></Stars></Text>
+              <Text style={styles.Textname}> fhtfhdfhthfth <Stars avaliacao={"5"} style={styles.starandvalue}></Stars></Text>
             </View>
             <View style={styles.endereço}>
               <Text style={styles.Textendereço}>Rua nem criatividade agora, 0000. Belo Horizonte</Text>

@@ -2,18 +2,18 @@ import React, {useEffect, useState} from 'react';
 import { View, Text } from 'react-native';
 import styles from './style';
 import {getUser} from "../../services/UsuarioSevice";
+import UserEntity from "../../entities/User";
 
 export default function ClientCard() {
-    const [useario, setUseario] = useState();
+    const [useario, setUseario] = useState(new UserEntity());
 
     useEffect(() => {
-        async function loadUser() {
+        const loadUser = async () => {
             const userPromice = await getUser();
             setUseario(userPromice);
         }
 
         loadUser();
-        console.log(useario);
     }, []);
 
   return (

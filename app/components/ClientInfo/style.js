@@ -7,13 +7,15 @@ export default StyleSheet.create({
         alignItems:'center'
     },
     name:{
-        fontSize: 20,
+        fontSize: 36,
         fontWeight:700,
-        fontFamily:'Roboto'
+        fontFamily:'Roboto',
+        marginBottom: 5
     },
     info:{
-        fontSize: 14,
+        fontSize: 24,
         fontFamily:'Roboto',
+        fontWeight:600,
         color:'#919191'
     }
 });

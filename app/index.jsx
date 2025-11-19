@@ -47,7 +47,7 @@ export default function Index() {
             <Text style={styles.Textendereco}>Endereço</Text>
 
              <Text style={styles.myLocalization}>
-              <Image source={require('./assets/images/icons/marcador.png')} style={{ width: 8, height:8 }} />
+              <Image source={require('./assets/images/icons/marcador.png')} style={{ width: 15, height:15 }} />
               {Address ? `${Address.street} - ${Address.streetNumber}` : "Carregando..."}
             </Text>
           </View>
@@ -117,8 +117,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto',
     fontWeight: '700',
     fontStyle: 'normal',
-    fontSize: 14,
+    fontSize: 20,
     lineHeight: 16,
+    top: 5,
     letterSpacing: 0,
     textAlign: 'center'
   },
@@ -126,8 +127,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto',
     fontWeight: '700',
     fontStyle: 'normal',
-    fontSize: 10,
+    fontSize: 16,
     lineHeight: 14,
+    top: 15,
     letterSpacing: 0.5,
     textAlign: 'center'
   },
