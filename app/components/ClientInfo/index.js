@@ -1,20 +1,26 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { View, Text } from 'react-native';
-import clients from '../../entities/clients.json'; 
 import styles from './style';
-import { useUser } from '../../context/UserContext';
+import {getUser} from "../../services/UsuarioSevice";
 
 export default function ClientCard() {
-  const { user } = useUser(); 
-  const client = clients[user]; 
+    const [useario, setUseario] = useState();
 
-  if (!client) return <Text>Cliente não encontrado</Text>;
+    useEffect(() => {
+        async function loadUser() {
+            const userPromice = await getUser();
+            setUseario(userPromice);
+        }
+
+        loadUser();
+        console.log(useario);
+    }, []);
 
   return (
     <View style={styles.card}>
-      <Text style={styles.name}>{client.nome}</Text>
-      <Text style={styles.info}>{client.telefone}</Text>
-      <Text style={styles.info}>{client.email}</Text>
+      <Text style={styles.name}>{useario.nome}</Text>
+      <Text style={styles.info}>{useario.telefone}</Text>
+      <Text style={styles.info}>{useario.email}</Text>
     </View>
   );
 };

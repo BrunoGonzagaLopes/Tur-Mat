@@ -1,24 +1,17 @@
 import { Image, StyleSheet, Text, View, Pressable, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
-import { useEffect } from "react";
-import { useUser } from '../context/UserContext';
+import {useEffect, useState} from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 // Componentes
 import Boll from '../components/BollGeneric';
 import Profile from '../components/Profile';
 import ClientInfo from '../components/ClientInfo';
 import ProfileMenu from '../components/cardConfig';
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function UserProfileView() {
- const { user } = useUser();
 
-   useEffect(() => {
-    if (user == null) {
-      router.push('/view/LoginView');
-    }
-  }, [user]);
 
   return (
     <View style={{ backgroundColor: '#F3EFEA', flex: 1 }}>
@@ -39,7 +32,7 @@ export default function UserProfileView() {
       <View style={{ alignItems: 'center', height: 80 }}>
         <Profile style={styles.profileCircle} />
         <Pressable style={styles.editPressable} onPress={() => router.push('/')}>
-          <Image source={require('../assets/images/icons/edit.png')} />
+          <Image source={{ uri: "" }} />
         </Pressable>
       </View>
     
@@ -49,7 +42,10 @@ export default function UserProfileView() {
         <ProfileMenu />
       </ScrollView>
       {/* FOOTER */}
-      <Pressable onPress={() => router.push('/')}>
+      <Pressable onPress={() => {
+          AsyncStorage.clear();
+          router.push('view/LoginView');
+      }}>
         <Text style={styles.LogOut}>Encerrar sessão</Text>
       </Pressable>
     </View>

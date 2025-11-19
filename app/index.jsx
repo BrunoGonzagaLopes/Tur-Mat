@@ -3,6 +3,7 @@ import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { router } from "expo-router"
 import { RFValue } from 'react-native-responsive-fontsize';
 import { getCurrentAddress } from "./services/locationService";
+import { get } from "./services/httpService";
 
 import Boll from './components/BollGeneric';
 import Carousel from './components/Carousel';
@@ -10,19 +11,27 @@ import FoodCategory from "./components/FoodCategory";
 import RestaurantCard from './components/RestaurantCard';
 import Search from './components/Search';
 import Profile from './components/Profile';
+import {getUser} from "./services/UsuarioSevice";
 
 
 export default function Index() {
 
-  // const [Address, setAddress] = useState(null);
+  const [Address, setAddress] = useState(null);
+  const [user, setUser] = useState();
 
-  // useEffect(() => {
-  //   const load = async () => {
-  //     const data = await getCurrentAddress();
-  //     setAddress(data);
-  //   };
-  //   load();
-  // }, []);
+  useEffect(() => {
+    const load = async () => {
+      const data = await getCurrentAddress();
+      setAddress(data);
+    };
+    const loadUser = async () => {
+      const usuario = await getUser();
+      setUser(usuario.urlImagemPerfil);
+    };
+
+    load();
+    loadUser();
+  }, []);
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1, backgroundColor: '#F3EFEA' }}>
@@ -37,13 +46,14 @@ export default function Index() {
           <View style={styles.ContainerTextEndereco}>
             <Text style={styles.Textendereco}>Endereço</Text>
 
-            {/* <Text style={styles.myLocalization}>
+             <Text style={styles.myLocalization}>
               <Image source={require('./assets/images/icons/marcador.png')} style={{ width: 8, height:8 }} />
               {Address ? `${Address.street} - ${Address.streetNumber}` : "Carregando..."}
-            </Text> */}
+            </Text>
           </View>
 
           <Profile
+              uri={user}
             style={styles.positionBoll}
             onPress={() => router.push('/view/UserProfileView')}
           />

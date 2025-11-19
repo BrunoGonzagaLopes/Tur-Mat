@@ -1,12 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import { View, TextInput, TouchableOpacity, Image } from 'react-native';
 import styles from './style';
+import {router} from "expo-router";
 
-const Search = ({ placeholder, onSearch }) => {
+const Search = ({ placeholder, onSearch, texto }) => {
   const [text, setText] = useState('');
 
+  useEffect(() => {
+      setText(texto);
+  }, [])
+
   const handleSearch = () => {
-    onSearch && onSearch(text);
+      router.push({pathname: '/view/SearchListView', params: {texto: text}})
   };
 
   return (

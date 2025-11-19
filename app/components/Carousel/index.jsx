@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { View, FlatList, Image, Dimensions } from "react-native";
+import {View, FlatList, Image, Dimensions, Pressable} from "react-native";
 import styles from "./style";
 
 const images = [
@@ -40,9 +40,9 @@ export default function Carousel() {
         snapToInterval={ITEM_WIDTH + ITEM_MARGIN}
         decelerationRate="fast"
         renderItem={({ item }) => (
-          <View style={{ width: ITEM_WIDTH, marginHorizontal: ITEM_MARGIN / 1}}>
+          <Pressable style={{ width: ITEM_WIDTH, marginHorizontal: ITEM_MARGIN / 1}} onPress={() => alert("oi")}>
             <Image source={item} style={styles.image} />
-          </View>
+          </Pressable>
         )}
       />
 
