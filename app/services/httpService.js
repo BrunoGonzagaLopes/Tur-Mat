@@ -1,7 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {router} from "expo-router";
 
-const BASE_URL = "http://54.207.111.209:8080/api";
+const BASE_URL = "http://56.124.97.70:8080/api";
 
 export async function get(endpoint) {
   let token = await AsyncStorage.getItem("token");
