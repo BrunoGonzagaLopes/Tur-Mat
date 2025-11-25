@@ -34,3 +34,14 @@ Tur-Mat/
 │   ├── services/         # Comunicação e lógica
 │   ├── entities/  # Arquivos JSON e dados locais (temporarios)
 └── App
+
+## Integrantes
+- Alexandra Karoline Rodrigues Bernardo
+- Bruno Vinicius Gonzaga Lopes
+- Edson Salles Junior
+- Gleiverson Ferreira Vinagre
+- Ryan Junio Pereira Costa
+- Victor Gabriel Pedrosa
+- Vinicius de Aquino Reis
+
+-----------
