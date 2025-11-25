@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, Image } from "react-native";
-import { validarEmail, validarCPF, validarSenha, validarNome } from "../services/validationCadastroService";
 import { cadastro } from "../services/httpService";
 import {router} from "expo-router";
 
@@ -55,7 +54,7 @@ export default function CadastroScreen() {
                 <Text style={styles.ruleItem}>• 1 caractere especial</Text>
             </View>
 
-            <TouchableOpacity style={styles.button} onPress={handleCadastro}>
+            <TouchableOpacity style={styles.button} onPress={(handleCadastro)}>
                 <Text style={styles.buttonText}>Cadastrar</Text>
             </TouchableOpacity>
         </View>

@@ -7,7 +7,6 @@ export function useQrCodeService() {
 
   async function handleBarCodeScanned({ data }, setScanned) {
     setScanned(true);
-    alert(`QR Code lido: ${data}`);
     let dados = await adicionarPontos(data)
     router.push({pathname: '/view/assessView', params: {restauranteid: dados.estabelecimento.id}})
   }

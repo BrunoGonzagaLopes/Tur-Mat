@@ -103,7 +103,6 @@ export default function FoodTruckView() {
           <Text style={styles.textCardapio}>Cardápio</Text>
           <FoodTruckCard data={restaurant.id}></FoodTruckCard>
         </View>
-
       </ScrollView>
     </View>
 

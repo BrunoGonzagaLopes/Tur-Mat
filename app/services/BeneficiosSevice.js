@@ -29,7 +29,6 @@ export async function getPontuacao() {
 
 export async function buyCupom(id) {
     let object = {id: id}
-    alert(object);
     let dados = await post("usuarios/beneficios/cupons", object);
     if (dados.mensagem !== undefined) {
         alert(dados.mensagem)

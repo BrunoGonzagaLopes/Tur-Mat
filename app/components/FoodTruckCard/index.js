@@ -2,22 +2,26 @@ import React, { useEffect, useState } from 'react';
 import { FlatList, Image, Text, TouchableOpacity, View, ActivityIndicator } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from './style';
-import {getCardapio} from '../../services/RestaurantService';
+import { getCardapio } from '../../services/RestaurantService';
 
-const foodTruckCard = ({ data }) => {
+const FoodTruckCard = ({data}) => {
   const [foodTruck, setfoodTruck] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const loadfoodTruck = async () => {
-      const response = await getCardapio("076ca2c9-5e73-499f-99bb-99a50a0384e1");
-      setfoodTruck([]);
+ useEffect(() => {
+  const loadfoodTruck = async () => {
+    try {
+      const response = await getCardapio(data);
+      setfoodTruck(response);
+    } catch (error) {
+      console.error("Erro ao buscar cardápio:", error);
+    } finally {
       setLoading(false);
-    };
+    }
+  };
 
-    loadfoodTruck();
-    alert(foodTruck);
-  }, []);
+  loadfoodTruck();
+}, [data]); 
 
 
   if (loading) {
@@ -28,30 +32,30 @@ const foodTruckCard = ({ data }) => {
     );
   }
 
- 
   return (
-      <FlatList
-          data={foodTruck}
-          keyExtractor={(item) => String(item.id)}
-          renderItem={({ card }) => (
-          <TouchableOpacity style={styles.ContainerCard}>
-            <LinearGradient
-              colors={["#FEFEFB", "#F3F3F3"]}
-              start={{ x: 0.5, y: 0 }}
-              end={{ x: 0.5, y: 1 }}
-              style={styles.InfoCard}
-            >
-              <Image style={styles.ImageCard} source={{ uri: card.image }} />
-              <View style={styles.ContainerTextInfoCard}>
-                <Text style={styles.ValueInfo}> R${card.preco}</Text>
-                <Text style={styles.Textname}>{card.nome}</Text>
-                <Text style={styles.DescriptionCard}>{card.descricao}</Text>
-              </View>
-            </LinearGradient>
-          </TouchableOpacity>
-          )}
-      />
+    <FlatList
+      data={foodTruck}
+      keyExtractor={(item) => String(item.id)}
+      renderItem={({ item }) => (
+        <TouchableOpacity style={styles.ContainerCard}>
+          <LinearGradient
+            colors={["#FEFEFB", "#F3F3F3"]}
+            start={{ x: 0.5, y: 0 }}
+            end={{ x: 0.5, y: 1 }}
+            style={styles.InfoCard}
+          >
+            <Image style={styles.ImageCard} source={{ uri: item.image }} />
+
+            <View style={styles.ContainerTextInfoCard}>
+              <Text style={styles.ValueInfo}>R$ {item.preco}</Text>
+              <Text style={styles.Textname}>{item.name}</Text>
+              <Text style={styles.DescriptionCard}>{item.descricao}</Text>
+            </View>
+          </LinearGradient>
+        </TouchableOpacity>
+      )}
+    />
   );
 };
 
-export default foodTruckCard;
+export default FoodTruckCard;
