@@ -1,27 +1,36 @@
 # 📱 Tur Mat
 
-O **Tur Mat** é um aplicativo desenvolvido em **React Native** com o objetivo de conectar clientes a restaurantes e bares locais, oferecendo uma experiência moderna e intuitiva, permitindo que o usuário explore estabelecimentos, visualize informações, categorias e promoções de forma prática e acessível.
+O **Tur Mat** é um aplicativo mobile desenvolvido em **React Native** com o objetivo de
+conectar clientes a restaurantes e bares locais, oferecendo uma experiência moderna
+e intuitiva para exploração de estabelecimentos, categorias e promoções.
 
----------
+---
 
 ## 🚀 Tecnologias Utilizadas
-- **React Native**
-- **Expo**
+- **React Native** — desenvolvimento da aplicação mobile
+- **Expo** — ambiente de desenvolvimento e testes
 - **JavaScript (ES6+)**
-- **Node.js**
-- **JSON** para consumo de dados
-- **Java** (back-end)
+- **Node.js** — suporte ao ambiente de desenvolvimento
+- **JSON** — simulação e consumo inicial de dados
+- **Java (Back-end)** — API REST responsável pelo fornecimento de dados para a aplicação
 
-----------
+---
 
 ## 💡 Funcionalidades
-- Exibição de restaurantes com informações e imagens  
-- Sistema de categorias dinâmico  
-- Carrossel informativo na tela inicial  
-- Recuperação de dados dinâmicos do servidor via requisições HTTP.  
-- Layout responsivo e adaptado para mobile  
+- Exibição de restaurantes com informações e imagens
+- Sistema de categorias dinâmico
+- Carrossel informativo na tela inicial
+- Consumo de dados via requisições HTTP
+- Layout responsivo e adaptado para dispositivos móveis
 
------------
+---
+
+## Arquitetura
+A aplicação consome dados de uma API REST desenvolvida em Java,
+permitindo separação entre front-end e back-end
+
+---
+
 
 🧩 Estrutura do Projeto
 Tur-Mat/
